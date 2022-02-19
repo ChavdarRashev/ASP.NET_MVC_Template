@@ -1,0 +1,55 @@
+﻿@using  MVC_SSL_cert_identity.Models
+@model IEnumerable<Certificate>
+
+<h1>Сертификати в базата данни</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Serial number
+            </th>
+            <th>
+                Thumbprint
+            </th>
+            <th>
+                Created on
+            </th>
+
+            <th>
+                DeletedOn
+            </th>
+            <th>Operation</th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>  @Html.DisplayFor(m => item.Id) </td>
+        
+            <td>  @Html.DisplayFor(m => item.Subject) </td>
+        
+            <td>  @Html.DisplayFor(m => item.SerialNumber) </td>
+        
+            <td>  @Html.DisplayFor(m => item.Thumbprint) </td>
+       
+            <td>  @Html.DisplayFor(m => item.CreatedOn) </td>
+       
+            <td>  @Html.DisplayFor(m => item.DeletedOn) </td>
+            <td>
+                <div><form method="POST" asp-action="SoftDelete"><input type="hidden" name="id" value="@item.Id" /><button type="submit" class="btn-info">Soft Delete</button></form> </div>
+                <div><form method="POST" asp-action="Delete"><input type="hidden" name="id" value="@item.Id" /><button type="submit" class="btn-warning">Delete</button></form></div>
+            </td>
+           
+        </tr>
+
+    }
+
+</table>

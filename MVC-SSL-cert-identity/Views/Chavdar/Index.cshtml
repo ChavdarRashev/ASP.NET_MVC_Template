@@ -1,0 +1,27 @@
+﻿@model MVC_SSL_cert_identity.Models.Certificate
+
+<p>Chavdar certificate identity</p>
+
+<ul>
+    <li>Subject: @Model.Subject</li>
+    <li>Ser. number: @Model.SerialNumber </li>
+    
+    <li>Issuer: @Model.Issuer </li>
+   
+    <li>Valid from: @Model.NotAfter </li>
+    <li>Valid to: @Model.NotBefore </li>
+    <li>Thumbprint: @Model.Thumbprint </li>
+
+    
+</ul>
+
+<form asp-action="Create">
+    <input type="hidden" asp-for="@Model.Issuer" />
+    <input type="hidden" asp-for="@Model.NotAfter" />
+    <input type="hidden" asp-for="@Model.NotBefore" />
+    <input type="hidden" asp-for="@Model.SerialNumber" />
+    <input type="hidden" asp-for="@Model.Subject" />
+    <input type="hidden" asp-for="@Model.Thumbprint" />
+
+    <button type="submit" class="btn btn-success" value="Запиши">ЗАПИШИ</button>
+</form>
