@@ -33,7 +33,7 @@ namespace MVC_SSL_cert_identity
         {
             services.AddControllersWithViews();
 
-            services.Add(new ServiceDescriptor(typeof(ICertificateValidationService), new CertificateValidation()));
+            services.Add(new ServiceDescriptor(typeof(ICertificateValidationService), new CertificateValidationService()));
 
             services.AddAuthentication(
             CertificateAuthenticationDefaults.AuthenticationScheme)
