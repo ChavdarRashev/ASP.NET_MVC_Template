@@ -22,3 +22,6 @@ C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\obj\Debug\net5.0\D
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\obj\Debug\net5.0\DataCommon.dll
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\obj\Debug\net5.0\ref\DataCommon.dll
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\obj\Debug\net5.0\DataCommon.pdb
+C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\bin\Debug\net5.0\DataCommon.runtimeconfig.json
+C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\bin\Debug\net5.0\DataCommon.runtimeconfig.dev.json
+C:\Users\PC\source\repos\ASP.NET_MVC_Template\Data\DataCommon\obj\Debug\net5.0\DataCommon.genruntimeconfig.cache

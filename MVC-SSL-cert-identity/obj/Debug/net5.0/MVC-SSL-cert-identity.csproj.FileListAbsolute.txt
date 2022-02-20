@@ -78,7 +78,6 @@ C:\Users\rashev\source\repos\MVC-SSL-cert-identity\MVC-SSL-cert-identity\obj\Deb
 C:\Users\rashev\source\repos\MVC-SSL-cert-identity\MVC-SSL-cert-identity\obj\Debug\net5.0\MVC-SSL-cert-identity.genruntimeconfig.cache
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\MVC-SSL-cert-identity\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\MVC-SSL-cert-identity\bin\Debug\net5.0\appsettings.json
-C:\Users\PC\source\repos\ASP.NET_MVC_Template\MVC-SSL-cert-identity\bin\Debug\net5.0\stylecop.json
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\MVC-SSL-cert-identity\bin\Debug\net5.0\MVC-SSL-cert-identity.exe
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\MVC-SSL-cert-identity\bin\Debug\net5.0\MVC-SSL-cert-identity.deps.json
 C:\Users\PC\source\repos\ASP.NET_MVC_Template\MVC-SSL-cert-identity\bin\Debug\net5.0\MVC-SSL-cert-identity.runtimeconfig.json

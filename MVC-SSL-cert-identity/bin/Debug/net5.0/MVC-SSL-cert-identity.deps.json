@@ -1258,7 +1258,10 @@
       },
       "DataCommon/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.14"
+          "Microsoft.AspNetCore.Authentication.Certificate": "5.0.14",
+          "Microsoft.EntityFrameworkCore": "5.0.14",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.14",
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "DataCommon.dll": {}

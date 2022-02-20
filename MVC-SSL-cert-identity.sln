@@ -7,7 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC-SSL-cert-identity", "MV
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{50584155-3AA3-4A64-9691-A2339758EF20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataCommon", "Data\DataCommon\DataCommon.csproj", "{E35B1B6B-3DFB-4DB3-A6B9-EA2090E6CE5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataCommon", "Data\DataCommon\DataCommon.csproj", "{E35B1B6B-3DFB-4DB3-A6B9-EA2090E6CE5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C38B56A8-E2C5-4159-BCD4-595128B0951C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution documentation", "Solution documentation", "{C4F59292-1455-46F4-860F-864159E097E3}"
+	ProjectSection(SolutionItems) = preProject
+		basic_readme.md = basic_readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template documentation", "Template documentation", "{57236562-DB5C-4547-BA92-27A120D48E6E}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionStructure.md = SolutionStructure.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +41,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E35B1B6B-3DFB-4DB3-A6B9-EA2090E6CE5D} = {50584155-3AA3-4A64-9691-A2339758EF20}
+		{C4F59292-1455-46F4-860F-864159E097E3} = {C38B56A8-E2C5-4159-BCD4-595128B0951C}
+		{57236562-DB5C-4547-BA92-27A120D48E6E} = {C38B56A8-E2C5-4159-BCD4-595128B0951C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95FEAE30-D153-44B3-83AA-D69A95166297}
