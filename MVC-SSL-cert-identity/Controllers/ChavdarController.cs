@@ -55,7 +55,7 @@ namespace MVC_SSL_cert_identity.Controllers
 
                     // await _context.SaveChangesAsync();
                     // _context.SaveChanges();
-                    this._context.SaveChangesWithDateTime();
+                    await this._context.SaveChangesWithDateTimeAsync();
                     return this.RedirectToAction(nameof(this.Index));
                 }
             }
