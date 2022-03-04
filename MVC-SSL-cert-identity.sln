@@ -21,8 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template documentation", "T
 		SolutionStructure.md = SolutionStructure.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{14DA8A5D-219C-43C9-B71B-79EF439738BA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{905556F5-6D12-4F8D-B02C-E9B9413B79E3}"
 EndProject
 Global

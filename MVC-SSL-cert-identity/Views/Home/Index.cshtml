@@ -21,3 +21,16 @@
         }
     </table>
 }
+
+
+@{
+    var clm = User.Claims.FirstOrDefault(c => c.Type == "Chavdar");
+    if (clm == null)
+    {
+        <p> Няма клейм за правилен потребител</p>
+    }
+    else
+    {
+        <p> Потребител със @clm.Value е логнат</p>
+    }
+}

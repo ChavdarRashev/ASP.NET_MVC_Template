@@ -16,7 +16,7 @@
         {
             var result = cert;
 
-            return false;
+            return true;
         }
     }
 }
