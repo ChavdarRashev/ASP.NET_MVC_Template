@@ -58,16 +58,20 @@ namespace MVC_SSL_cert_identity
                                 ClaimValueTypes.String,
                                 context.Options.ClaimsIssuer),
                             new Claim(
-                                ClaimTypes.Name,
+                                ClaimTypes.Country,
                                 context.ClientCertificate.Subject,
+                                ClaimValueTypes.String,
+                                context.Options.ClaimsIssuer),
+                            new Claim(
+                                "Chavdar",
+                                "Chavdar Rashev",
                                 ClaimValueTypes.String,
                                 context.Options.ClaimsIssuer),
 
 
                             };
 
-                                context.Principal = new ClaimsPrincipal(
-                                new ClaimsIdentity(claims, context.Scheme.Name));
+                                context.Principal = new ClaimsPrincipal(new ClaimsIdentity(claims, context.Scheme.Name));
 
 
                                 context.Success();
@@ -80,6 +84,11 @@ namespace MVC_SSL_cert_identity
 
             services.AddDbContext<CertificateDBContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).LogTo(Console.WriteLine, LogLevel.Information));
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Rashev", policy => policy.RequireClaim("Chavdar"));
+            });
 
         }
 

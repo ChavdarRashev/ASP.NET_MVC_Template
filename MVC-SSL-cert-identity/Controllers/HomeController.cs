@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVC_SSL_cert_identity.Models;
 using System;
@@ -23,6 +24,7 @@ namespace MVC_SSL_cert_identity.Controllers
             return this.View();
         }
 
+        [Authorize(Policy = "Rashev")]
         public IActionResult Privacy()
         {
             return this.View();
