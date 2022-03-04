@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template documentation", "T
 		SolutionStructure.md = SolutionStructure.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{14DA8A5D-219C-43C9-B71B-79EF439738BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{905556F5-6D12-4F8D-B02C-E9B9413B79E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{901A0005-1461-4DE2-A843-8E2415CAFBE0} = {905556F5-6D12-4F8D-B02C-E9B9413B79E3}
 		{E35B1B6B-3DFB-4DB3-A6B9-EA2090E6CE5D} = {50584155-3AA3-4A64-9691-A2339758EF20}
 		{C4F59292-1455-46F4-860F-864159E097E3} = {C38B56A8-E2C5-4159-BCD4-595128B0951C}
 		{57236562-DB5C-4547-BA92-27A120D48E6E} = {C38B56A8-E2C5-4159-BCD4-595128B0951C}

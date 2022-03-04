@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Data\DataCommon\DataCommon.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+
 </Project>

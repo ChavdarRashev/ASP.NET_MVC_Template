@@ -8,4 +8,6 @@
 #### Documentation -> Solution documentation
 Документи свързани с конкретните проекти.
 #### Documentation -> Template documentation
-Документи свързани с темплейта. Документите са описани на кода.  
+Документи свързани с темплейта. Документите са описани на кода. 
+### Services
+Папка със shared services за всички проекти 
