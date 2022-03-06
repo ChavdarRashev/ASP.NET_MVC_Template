@@ -9,7 +9,7 @@ namespace FileManagement.Models.ViewModels
 {
     public class InputFileModel
     {
-        [System.ComponentModel.DataAnnotations.Required]
+        [Required(ErrorMessage = "Не сте прикачели файл.")]
         [Display(Name = "Файл")]
         public IFormFile FormFile { get; set; }        
     }

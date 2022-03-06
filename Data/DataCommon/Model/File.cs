@@ -12,6 +12,7 @@ namespace DataCommon.Model
         public string UntrustedName { get; set; }
         public string NewTrustedName { get; set; }
         public long Size { get; set; }
+        public string MIMEtype { get; set; }
 
     }
 }

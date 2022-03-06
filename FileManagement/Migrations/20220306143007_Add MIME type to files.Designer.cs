@@ -4,14 +4,16 @@ using FileManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FileManagement.Migrations
 {
     [DbContext(typeof(FileDBContext))]
-    partial class FileDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220306143007_Add MIME type to files")]
+    partial class AddMIMEtypetofiles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

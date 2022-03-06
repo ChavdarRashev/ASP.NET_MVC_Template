@@ -22,6 +22,7 @@ namespace FileManagement.Utilities
         // and the official specifications for the file types you wish to add.
         private static readonly Dictionary<string, List<byte[]>> _fileSignature = new Dictionary<string, List<byte[]>>
         {
+            { ".pdf", new List<byte[]> { new byte[] { 0x25, 0x50, 0x44, 0x46 } } },
             { ".gif", new List<byte[]> { new byte[] { 0x47, 0x49, 0x46, 0x38 } } },
             { ".png", new List<byte[]> { new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A } } },
             { ".jpeg", new List<byte[]>
@@ -48,6 +49,17 @@ namespace FileManagement.Utilities
                     new byte[] { 0x57, 0x69, 0x6E, 0x5A, 0x69, 0x70 },
                 }
             },
+        };
+
+        private static readonly Dictionary<string, string> _fileMIMEType = new Dictionary<string, string>
+        {
+            { ".pdf", "application/pdf"},
+            { ".gif", "image/gif"},
+            { ".png", "image/png"},
+            { ".jpeg", "image/jpeg"},
+            { ".jpg", "image/jpeg"},
+            { ".zip", "application/zip"},
+            { ".txt", "text/plain"},
         };
 
         // **WARNING!**
@@ -90,8 +102,9 @@ namespace FileManagement.Utilities
             // a BOM as their content.
             if (formFile.Length == 0)
             {
-                modelState.AddModelError(formFile.Name, 
-                    $"{fieldDisplayName}({trustedFileNameForDisplay}) is empty.");
+               
+                //modelState.AddModelError(formFile.Name, $"{fieldDisplayName}({trustedFileNameForDisplay}) is empty.");
+                modelState.AddModelError(formFile.Name, $"{fieldDisplayName}({trustedFileNameForDisplay}) не съдържа съдържание.");
 
                 return Array.Empty<byte>();
             }
@@ -99,8 +112,13 @@ namespace FileManagement.Utilities
             if (formFile.Length > sizeLimit)
             {
                 var megabyteSizeLimit = sizeLimit / 1048576;
+
+                //modelState.AddModelError(formFile.Name,
+                //    $"{fieldDisplayName}({trustedFileNameForDisplay}) exceeds " +
+                //    $"{megabyteSizeLimit:N1} MB.");
+
                 modelState.AddModelError(formFile.Name,
-                    $"{fieldDisplayName}({trustedFileNameForDisplay}) exceeds " +
+                    $"{fieldDisplayName}({trustedFileNameForDisplay}) надвишава " +
                     $"{megabyteSizeLimit:N1} MB.");
 
                 return Array.Empty<byte>();
@@ -117,17 +135,22 @@ namespace FileManagement.Utilities
                     // empty after removing the BOM.
                     if (memoryStream.Length == 0)
                     {
-                        modelState.AddModelError(formFile.Name,
-                            $"{fieldDisplayName}({trustedFileNameForDisplay}) is empty.");
+                        //modelState.AddModelError(formFile.Name, $"{fieldDisplayName}({trustedFileNameForDisplay}) is empty.");
+                        modelState.AddModelError(formFile.Name, $"{fieldDisplayName}({trustedFileNameForDisplay}) не съдържа съдържание.");
                     }
 
                     if (!IsValidFileExtensionAndSignature(
                         formFile.FileName, memoryStream, permittedExtensions))
                     {
+                        //modelState.AddModelError(formFile.Name,
+                        //    $"{fieldDisplayName}({trustedFileNameForDisplay}) file " +
+                        //    "type isn't permitted or the file's signature " +
+                        //    "doesn't match the file's extension.");
+
                         modelState.AddModelError(formFile.Name,
-                            $"{fieldDisplayName}({trustedFileNameForDisplay}) file " +
-                            "type isn't permitted or the file's signature " +
-                            "doesn't match the file's extension.");
+                            $"{fieldDisplayName}({trustedFileNameForDisplay}) типът(разширението) на файла " +
+                            "не е позволен или структурата на файла (file signature)  " +
+                            "не отговаря на съответния тип.");
                     }
                     else
                     {
@@ -138,8 +161,8 @@ namespace FileManagement.Utilities
             catch (Exception ex)
             {
                 modelState.AddModelError(formFile.Name,
-                    $"{fieldDisplayName}({trustedFileNameForDisplay}) upload failed. " +
-                    $"Please contact the Help Desk for support. Error: {ex.HResult}");
+                    $"{fieldDisplayName}({trustedFileNameForDisplay}) греша при качване. " +
+                    $"Свържете се с адмнистратора на системата. Грешка: {ex.HResult}");
                 // Log the exception
             }
 
@@ -266,5 +289,23 @@ namespace FileManagement.Utilities
                     headerBytes.Take(signature.Length).SequenceEqual(signature));
             }
         }
+
+        public static string NewRandomFileName (string originalFileName)
+        {
+            FileInfo fi = new FileInfo(originalFileName);
+            
+            string newName = $@"{DateTime.Now.Ticks}{fi.Extension}";
+            //string newName = $@"{Guid.NewGuid()}{fi.Extension}";
+
+            return (newName);
+
+        }
+
+        public static string GetMIMEType(string extension)
+        {
+            string mime;
+            mime = _fileMIMEType[extension];
+            return (mime);
+        } 
     }
 }

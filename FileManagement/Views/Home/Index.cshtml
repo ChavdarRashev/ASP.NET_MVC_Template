@@ -3,22 +3,30 @@
     ViewData["Title"] = "Прикачване на файл";
 }
 
-<form enctype="multipart/form-data" method="post">
+<form enctype="multipart/form-data" method="post" asp-action="Upload">
     <dl>
-        
+
         <dt>
-            <label asp-for="FormFile"></label>
+            <label asp-for="FormFile"></label><span class="text-warning">*</span>
         </dt>
         <dd>
             <input asp-for="FormFile" type="file" />
             <span asp-validation-for="FormFile"></span>
         </dd>
     </dl>
-    <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />
+    <!--<input asp-page-handler="Upload" class="btn" type="submit" value="Upload" /> -->
+    <button type="submit">Submit</button>
 </form>
 
+<p class="py-5">
+    * @ViewBag.message
+</p>
+<div class="py-5">
+    <a asp-action="Download" asp-controller="Home" asp-route-id="5">Download</a>
+</div>
+
 <p class="result">
-    
+
 </p>
 
 @section Scripts {

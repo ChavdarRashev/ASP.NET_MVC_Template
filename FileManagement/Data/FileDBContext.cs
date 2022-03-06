@@ -25,5 +25,26 @@ namespace FileManagement.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public async Task<int> SaveChangesWithDateTimeAsync()
+        {
+            var entries = ChangeTracker
+                .Entries()
+                .Where(e =>
+                        e.State == EntityState.Added
+                        || e.State == EntityState.Modified);
+
+            foreach (var entityEntry in entries)
+            {
+                //entityEntry.Property("ModifiedOn").CurrentValue = DateTime.Now;
+                entityEntry.Property("ModifiedOn").CurrentValue = DateTime.Now;
+                if (entityEntry.State == EntityState.Added)
+                {
+                    entityEntry.Property("CreatedOn").CurrentValue = DateTime.Now;
+                }
+            }
+
+            return await base.SaveChangesAsync();
+        }
     }
 }

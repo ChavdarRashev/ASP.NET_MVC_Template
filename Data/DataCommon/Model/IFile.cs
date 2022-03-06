@@ -16,6 +16,8 @@ namespace DataCommon.Model
         
         public long Size { get; set; }
 
-   
+        public string MIMEtype { get; set; }
+
+
     }
 }
