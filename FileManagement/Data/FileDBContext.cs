@@ -18,7 +18,7 @@ namespace FileManagement.Data
         {
           
 
-            builder.Entity<FileRashev>().HasQueryFilter(b => !b.IsDeleted);
+           builder.Entity<FileRashev>().HasQueryFilter(b => !b.IsDeleted);
 
            // base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.

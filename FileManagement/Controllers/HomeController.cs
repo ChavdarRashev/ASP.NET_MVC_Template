@@ -34,14 +34,25 @@ namespace FileManagement.Controllers
         }
 
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             int maxFileSize = _config.GetValue<int>("FileUploadsParameter:MaxFileSizeMB");
             string[] permittedExtensions = _config.GetSection("FileUploadsParameter:PermittedExtensions").Get<List<string>>().ToArray();
             string fileTypes = String.Join(", ", permittedExtensions);
 
             ViewBag.message = $"Файлът трябва да е не по-голям от {maxFileSize:N1} MB и да е от тип(разширение) {fileTypes}";
+            
+
             return View();
+        }
+
+        public async Task<IActionResult> GetFiles()
+        {
+
+            //https://codewithmukesh.com/blog/jquery-datatable-in-aspnet-core/
+
+            var files = await this._context.Files.ToListAsync();
+            return View(files);
         }
 
         [HttpPost]
@@ -127,29 +138,51 @@ namespace FileManagement.Controllers
             if (downFile == null) { return NotFound(); }
             
             return File(downFile.Content, downFile.MIMEtype, downFile.NewTrustedName);
-           
-           
+                      
         }
 
-        public async Task<FileResult> Picture(int id)
+
+        //Абсолютно идентичен метод с горния Download, Използва се за извличане на снимки от базата данни.
+        //Евентуално може да се изтрие или да се използва за снимки.
+        public async Task<IActionResult> GetImage(int id)
         {
-            if (id == 0) { return null; }
+            if (id == 0) { return NotFound(); }
             FileRashev downFile = new FileRashev();
 
             downFile = await _context.Files.Where(a => a.Id == id).SingleOrDefaultAsync();
-            // Response.AppendHeader("content-disposition", "inline; filename=file.pdf"); //this will open in a new tab.. remove if you want to open in the same tab.
+            if (downFile == null) { return NotFound(); }
+
             return File(downFile.Content, downFile.MIMEtype, downFile.NewTrustedName);
-            // return File(memory, GetContentType(path), Path.GetFileName(path));
 
         }
 
-        //https://andrewlock.net/re-execute-the-middleware-pipeline-with-the-statuscodepages-middleware-to-create-custom-error-pages/
-        //http://www.binaryintellect.net/articles/2f55345c-1fcb-4262-89f4-c4319f95c5bd.aspx
-
-        public IActionResult StatusCode (string code)
+        //Метод към страница, която визуализира в браузъра снимка
+        public async Task<IActionResult> Image(int id)
         {
-            return View(code);
+            return View(id);
         }
+
+
+
+        public IActionResult ErrorStatusCode(int? statusCode = null)
+        {
+            if (statusCode.HasValue)
+            {
+                ViewBag.ErrCode = statusCode.ToString();                
+            }
+            return View();
+        }
+
+
+        //Долният метод връща грешка за да се пробват как работят Midelware за обработка на грешки. Метода не се ползва в реална ситуация
+        //Когато възникне грешка в кода хвърля exception , но това не е status code 500 (internal server error)
+        //Когато има грешка със стаус код се задейсва midelware app.UseStatusCodePagesWithReExecute("/Home/ErrorStatusCode", "?statusCode={0}"); от Startup.cs 
+        public IActionResult Problem()
+            {
+            throw new Exception("Rashevs error");
+            //return StatusCode(500);
+            }
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

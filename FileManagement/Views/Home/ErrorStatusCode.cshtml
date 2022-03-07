@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Грешка 404";
+}
+
+
+@if (ViewBag.ErrCode=="404")
+{
+    <h1> Няма такъв файл! Грешка 404</h1>
+}
+else
+{
+<p class="font-weight-bold">Грешка. HTTP статус код @ViewBag.ErrCode </p>
+
+}
+

@@ -293,9 +293,10 @@ namespace FileManagement.Utilities
         public static string NewRandomFileName (string originalFileName)
         {
             FileInfo fi = new FileInfo(originalFileName);
-            
-            string newName = $@"{DateTime.Now.Ticks}{fi.Extension}";
-            //string newName = $@"{Guid.NewGuid()}{fi.Extension}";
+            string fileExtension = fi.Extension.ToLower();
+
+            string newName = $@"{DateTime.Now.Ticks}{fileExtension}";
+            //string newName = $@"{Guid.NewGuid()}{fileExtension}";
 
             return (newName);
 
@@ -304,7 +305,8 @@ namespace FileManagement.Utilities
         public static string GetMIMEType(string extension)
         {
             string mime;
-            mime = _fileMIMEType[extension];
+            string loverCaseExtension = extension.ToLower();
+            mime = _fileMIMEType[loverCaseExtension];
             return (mime);
         } 
     }
