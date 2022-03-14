@@ -111,7 +111,6 @@ namespace MVC_SSL_cert_identity
             app.UseRouting();
 
            
-
             app.UseAuthentication();
             app.UseAuthorization();
 

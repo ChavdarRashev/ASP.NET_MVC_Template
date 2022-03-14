@@ -16,6 +16,9 @@ using System.IO;
 
 namespace FileManagement.Controllers
 {
+
+    // TODO: В _Lаyout.cshtml bootstrap.css се зарежда от CDN, няма fallback, има някакъв бъг в генерирания javascript от Microsoft за fallback
+    // TODO: Използва се версия на dataTables.bootstrap5 1.11.5 не могат да се намерят пакети да се свалят за тази версия. Локланите пакети се свалят на ръка, няма integrity към тях dataTables.bootstrap5.min.js - свален ръчно
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -51,8 +54,15 @@ namespace FileManagement.Controllers
 
             //https://codewithmukesh.com/blog/jquery-datatable-in-aspnet-core/
 
+            
             var files = await this._context.Files.ToListAsync();
-            return View(files);
+            string resultData = null;
+            foreach (var temp in files)
+            {
+                resultData += $"[\"{temp.Id}\", \"{temp.UntrustedName}\", \"{temp.NewTrustedName}\", \"{temp.Size}\", \"{temp.MIMEtype}\", \"{temp.CreatedOn}\", \"Delete | Edit | Details\"],";
+            }
+            ViewBag.Result = $"[{resultData}]";
+            return View();
         }
 
         [HttpPost]

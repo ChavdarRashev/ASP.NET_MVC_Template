@@ -3,6 +3,8 @@
     ViewData["Title"] = "Прикачване на файл";
 }
 
+
+
 <form enctype="multipart/form-data" method="post" asp-action="Upload">
     <dl>
 
@@ -28,5 +30,8 @@
 
 
 @section Scripts {
+    
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    
 }
