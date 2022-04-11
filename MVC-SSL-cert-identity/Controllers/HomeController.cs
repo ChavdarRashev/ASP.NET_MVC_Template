@@ -27,6 +27,8 @@ namespace MVC_SSL_cert_identity.Controllers
         [Authorize(Policy = "Rashev")]
         public IActionResult Privacy()
         {
+            string claim = @User.Claims.FirstOrDefault(c => c.Type == "Chavdar").Value;
+            ViewBag.Claim = claim;
             return this.View();
         }
 

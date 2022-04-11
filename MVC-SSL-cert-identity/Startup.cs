@@ -35,16 +35,23 @@ namespace MVC_SSL_cert_identity
 
             services.Add(new ServiceDescriptor(typeof(ICertificateValidationService), new CertificateValidationService()));
 
+            // Изискваме автентикация със сертификат
             services.AddAuthentication(
             CertificateAuthenticationDefaults.AuthenticationScheme)
                 .AddCertificate(options =>
                 {
+
+                    options.AllowedCertificateTypes = CertificateTypes.All;
+                    options.RevocationMode = System.Security.Cryptography.X509Certificates.X509RevocationMode.Online;
+
                     options.Events = new CertificateAuthenticationEvents
                     {
+                        //Това се изпълнява след, като е валидиран сертификата и тук е кода за собсвената валидация на системата
                         OnCertificateValidated = context =>
                         {
 
                             var validationService = context.HttpContext.RequestServices.GetRequiredService<ICertificateValidationService>();
+
 
 
 
@@ -81,13 +88,17 @@ namespace MVC_SSL_cert_identity
                         },
                     };
                 });
+            
+                
+                // .AddCertificateCache();  // Разрешаваме кеширането на проверките на сертификатите в memory cache. Тази възможност се използва при натоварен сървър , често използване на сертификат, тези проверки да са по-бързи.
 
             services.AddDbContext<CertificateDBContext>(options =>
                  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).LogTo(Console.WriteLine, LogLevel.Information));
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Rashev", policy => policy.RequireClaim("Chavdar"));
+                options.AddPolicy("Rashev", policy => policy.RequireClaim("Chavdar")); //Това policy се ползва в метода Privacy от HomeController и там е показао , как да се чете
+
             });
 
         }
