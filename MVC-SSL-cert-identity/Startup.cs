@@ -35,6 +35,8 @@ namespace MVC_SSL_cert_identity
 
             services.Add(new ServiceDescriptor(typeof(ICertificateValidationService), new CertificateValidationService()));
 
+            // https://docs.microsoft.com/en-us/aspnet/core/security/authentication/certauth?view=aspnetcore-6.0
+            // https://stackoverflow.com/questions/60477579/certificate-authentication-implementation-in-asp-net-core-3-1
             // Изискваме автентикация със сертификат
             services.AddAuthentication(
             CertificateAuthenticationDefaults.AuthenticationScheme)
@@ -47,6 +49,7 @@ namespace MVC_SSL_cert_identity
                     options.Events = new CertificateAuthenticationEvents
                     {
                         //Това се изпълнява след, като е валидиран сертификата и тук е кода за собсвената валидация на системата
+                        // Ако собсвената валидация не премине успешно, тогава context.Fail(); и нмя а да има User.Identity.IsAuthenticated и няма да има клеймове
                         OnCertificateValidated = context =>
                         {
 
@@ -81,11 +84,17 @@ namespace MVC_SSL_cert_identity
                                 context.Principal = new ClaimsPrincipal(new ClaimsIdentity(claims, context.Scheme.Name));
 
 
-                                context.Success();
+                                 context.Success();
+                                //context.Fail("invalid cert");
                             }
 
                             return Task.CompletedTask;
-                        },
+                        }, // Ако проверката на сертификата е failed, то се изпълнява долния код
+                        OnAuthenticationFailed = context =>
+                        {
+                            context.Fail("invalid cert");
+                            return Task.CompletedTask;
+                        }
                     };
                 });
             
