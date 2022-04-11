@@ -1,12 +1,12 @@
 # ASP.NET_MVC_Template
 ASP.NET MVC Startup Template and documentation
 
-## Автентикация със сертификат
-- За да работи solution-а със сертификат (да изисква сертификат за автентикация) , трябва в конфигурационния файл .vs\config\applicationhost.config да се зададът определени стойности, които са описани тук https://improveandrepeat.com/2017/07/how-to-configure-iis-express-to-accept-ssl-client-certificates/
--- В .vs\config\ (ASP.NET_MVC_Template\.vs\MVC-SSL-cert-identity\config) има файл с име applicationhost_.config - модел предназначен да работи със сертификати
+## РђРІС‚РµРЅС‚РёРєР°С†РёСЏ СЃСЉСЃ СЃРµСЂС‚РёС„РёРєР°С‚
+- Р—Р° РґР° СЂР°Р±РѕС‚Рё solution-Р° СЃСЉСЃ СЃРµСЂС‚РёС„РёРєР°С‚ (РґР° РёР·РёСЃРєРІР° СЃРµСЂС‚РёС„РёРєР°С‚ Р·Р° Р°РІС‚РµРЅС‚РёРєР°С†РёСЏ) , С‚СЂСЏР±РІР° РІ РєРѕРЅС„РёРіСѓСЂР°С†РёРѕРЅРЅРёСЏ С„Р°Р№Р» .vs\config\applicationhost.config РґР° СЃРµ Р·Р°РґР°РґСЉС‚ РѕРїСЂРµРґРµР»РµРЅРё СЃС‚РѕР№РЅРѕСЃС‚Рё, РєРѕРёС‚Рѕ СЃР° РѕРїРёСЃР°РЅРё С‚СѓРє https://improveandrepeat.com/2017/07/how-to-configure-iis-express-to-accept-ssl-client-certificates/
+-- Р’ .vs\config\ (ASP.NET_MVC_Template\.vs\MVC-SSL-cert-identity\config) РёРјР° С„Р°Р№Р» СЃ РёРјРµ applicationhost_.config - РјРѕРґРµР» РїСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР° СЂР°Р±РѕС‚Рё СЃСЉСЃ СЃРµСЂС‚РёС„РёРєР°С‚Рё
 
 
-## Полезни линкове
+## РџРѕР»РµР·РЅРё Р»РёРЅРєРѕРІРµ
 
 https://docs.microsoft.com/en-us/aspnet/core/security/authentication/certauth?view=aspnetcore-6.0
 https://stackoverflow.com/questions/60477579/certificate-authentication-implementation-in-asp-net-core-3-1
