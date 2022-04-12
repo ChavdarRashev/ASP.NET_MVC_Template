@@ -20,6 +20,7 @@ namespace MVC_SSL_cert_identity.Data
        
         public DbSet<Certificate> Certificates { get; set; }
 
+        //ToDo долните методи SaveChangesWithDateTime, SaveChangesWithDateTime, RemoveSoftAsync да се изнасат като services, започнато е в в проекта Services, но няма време към 12.04.2022 да се направи.
         public int SaveChangesWithDateTime()
         {
             var entries = ChangeTracker

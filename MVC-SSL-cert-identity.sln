@@ -30,7 +30,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{89D1B5E4-F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{55FC337F-6ADA-4EE2-9389-0CEB644C1B90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileManagement", "FileManagement\FileManagement.csproj", "{2B2DFEFA-CF2A-4DEC-8EDA-53547FCD9486}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileManagement", "FileManagement\FileManagement.csproj", "{2B2DFEFA-CF2A-4DEC-8EDA-53547FCD9486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services\Services.csproj", "{1E9C7EC0-1AEC-4501-AA15-CBF20051489C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{2B2DFEFA-CF2A-4DEC-8EDA-53547FCD9486}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B2DFEFA-CF2A-4DEC-8EDA-53547FCD9486}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B2DFEFA-CF2A-4DEC-8EDA-53547FCD9486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9C7EC0-1AEC-4501-AA15-CBF20051489C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9C7EC0-1AEC-4501-AA15-CBF20051489C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9C7EC0-1AEC-4501-AA15-CBF20051489C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9C7EC0-1AEC-4501-AA15-CBF20051489C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{C4F59292-1455-46F4-860F-864159E097E3} = {C38B56A8-E2C5-4159-BCD4-595128B0951C}
 		{57236562-DB5C-4547-BA92-27A120D48E6E} = {C38B56A8-E2C5-4159-BCD4-595128B0951C}
 		{2B2DFEFA-CF2A-4DEC-8EDA-53547FCD9486} = {905556F5-6D12-4F8D-B02C-E9B9413B79E3}
+		{1E9C7EC0-1AEC-4501-AA15-CBF20051489C} = {55FC337F-6ADA-4EE2-9389-0CEB644C1B90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95FEAE30-D153-44B3-83AA-D69A95166297}
